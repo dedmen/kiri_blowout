@@ -17,3 +17,6 @@
 
 #define VARIABLE_DEFAULT(varName,defaultValue) if (isNil QUOTE(varName)) then {varName = defaultValue;}
 
+#define DAMAGE_WEAPON(UNIT,WEP,BROKEN) if (UNIT hasWeapon WEP) then { UNIT removeWeapon WEP; UNIT addWeapon BROKEN; }
+
+#define APSI_CLASSNAME "APSI3"

@@ -531,7 +531,7 @@ def get_project_version():
     #do the magic based on https://github.com/acemod/ACE3/issues/806#issuecomment-95639048
 
     try:
-        scriptModPath = os.path.join(work_drive, prefix, "gf_scripts\script_mod.hpp")
+        scriptModPath = os.path.join(work_drive, prefix, "kiri_blowout\script_mod.hpp")
 
         if os.path.isfile(scriptModPath):
             f = open(scriptModPath, "r")
