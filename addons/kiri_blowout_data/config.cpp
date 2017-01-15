@@ -39,3 +39,79 @@ class CfgWeapons {
 		descriptionShort = "These Night Vision Goggles broke, due to a heavy blowout.";
 	};
 };
+
+class CfgSounds {
+	
+	class bl_begin
+	{
+		name = "NS blowout_begin";
+		sound[] = {"z\kiri_blowout\addons\kiri_blowout_data\sounds\blowout_begin.ogg",3.162278,1.0};
+		titles[] = {};
+	};
+	class bl_hit1
+	{
+		name = "NS blowout_begin";
+		sound[] = {"z\kiri_blowout\addons\kiri_blowout_data\sounds\blowout_hit_1.ogg",1.584893,1.0};
+		titles[] = {};
+	};
+	class bl_hit2
+	{
+		name = "NS blowout_begin";
+		sound[] = {"z\kiri_blowout\addons\kiri_blowout_data\sounds\blowout_hit_2.ogg",1.584893,1.0};
+		titles[] = {};
+	};
+	class bl_hit3
+	{
+		name = "NS blowout_begin";
+		sound[] = {"z\kiri_blowout\addons\kiri_blowout_data\sounds\blowout_hit_3.ogg",1.584893,1.0};
+		titles[] = {};
+	};
+	class bl_wave1
+	{
+		name = "NS blowout_begin";
+		sound[] = {"z\kiri_blowout\addons\kiri_blowout_data\sounds\blowout_wave_1.ogg",1.584893,1.0};
+		titles[] = {};
+	};
+	class bl_wave2
+	{
+		name = "NS blowout_begin";
+		sound[] = {"z\kiri_blowout\addons\kiri_blowout_data\sounds\blowout_wave_2.ogg",1.584893,1.0};
+		titles[] = {};
+	};
+	class bl_wave3
+	{
+		name = "NS blowout_begin";
+		sound[] = {"z\kiri_blowout\addons\kiri_blowout_data\sounds\blowout_wave_3.ogg",1.584893,1.0};
+		titles[] = {};
+	};
+	class bl_psi
+	{
+		name = "NS blowout_psi";
+		sound[] = {"z\kiri_blowout\addons\kiri_blowout_data\sounds\blowout_psy_voices.ogg",1.778279,1.0};
+		titles[] = {};
+	};
+	class bl_full
+	{
+		name = "NS blowout_full";
+		sound[] = {"z\kiri_blowout\addons\kiri_blowout_data\sounds\blowout_full_wave.ogg",1.778279,1.0};
+		titles[] = {};
+	};
+	class bl_detect
+	{
+		name = "NS blowout_detect";
+		sound[] = {"z\kiri_blowout\addons\kiri_blowout_data\sounds\blowout_detect.ogg",1.778279,1.0};
+		titles[] = {};
+	};
+	class apsi_on
+	{
+		name = "NS apsi_on";
+		sound[] = {"z\kiri_blowout\addons\kiri_blowout_data\sounds\apsi_start.ogg",1.778279,1.0};
+		titles[] = {};
+	};
+	class apsi_off
+	{
+		name = "NS apsi_off";
+		sound[] = {"z\kiri_blowout\addons\kiri_blowout_data\sounds\apsi_off.ogg",1.778279,1.0};
+		titles[] = {};
+	};
+};
