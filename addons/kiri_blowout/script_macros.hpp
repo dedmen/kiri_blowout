@@ -19,4 +19,4 @@
 
 #define DAMAGE_WEAPON(UNIT,WEP,BROKEN) if (UNIT hasWeapon WEP) then { UNIT removeWeapon WEP; UNIT addWeapon BROKEN; }
 
-#define APSI_CLASSNAME "APSI3"
+#define APSI_CLASSNAME "APSI"
