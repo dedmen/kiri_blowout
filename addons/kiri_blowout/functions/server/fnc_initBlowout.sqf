@@ -2,7 +2,7 @@
 
 params ["_damageItems","_damageVehicles"];
 
-
+if (!isServer and !isDedicated) exitWith {};
 
 if (GVAR(blowoutInProgress)) exitWith { diag_log "[kfNAC BLOWOUT SERVER] :: tried to start Blowout but Blowout is already in progress"; };
 

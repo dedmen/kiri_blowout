@@ -6,7 +6,7 @@
 #endif
 #define DFUNC(var1) TRIPLES(PREFIX,fnc,var1)
 
-#define DISABLE_COMPILE_CACHE 1
+//#define DISABLE_COMPILE_CACHE 1
 
 #ifdef PREP
     #undef PREP

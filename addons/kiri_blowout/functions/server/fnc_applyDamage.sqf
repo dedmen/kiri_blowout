@@ -22,7 +22,7 @@
 params ["_damageItems","_damageVehicles"];
 
 {
-    params ["_unit"];
+    private _unit = _x;
 
     if (!isNull _unit) then {
         private _isInBuilding = [_unit] call kiri_blowout_fnc_isInsideBuilding;
@@ -42,7 +42,7 @@ params ["_damageItems","_damageVehicles"];
     };
 
     if (kiri_blowout_debug) then {
-        diag_log format["[kfNAC BLOWOUT SERVER] :: [S] %1 %2 Building %2 %3",_unit
+        diag_log format["[kfNAC BLOWOUT SERVER] :: [S] %1 %2 Building %2 %3",_unit,
             if (_isInBuilding) then {"IN"} else {"OUT"},
             if (_hasAPSI) then {"has APSI"} else {"has no APSI"},
             if (!_isInBuilding && !_hasAPSI) then {"was damaged by blowout"} else {"was not damaged"}
@@ -56,12 +56,10 @@ params ["_damageItems","_damageVehicles"];
 if (!_damageVehicles) exitWith {};
 
 {
-    params ["_vehicle"];
-
-    if (_vehicle isKindOf "AllVehicles") then {
-      if ((damage _vehicle) <= 0.99) then {
-        _vehicle setHit ["motor", 1];
-        if (kiri_blowout_debug) then {diag_log format["[NAC BLOWOUT SERVER] :: [V] %1 has been damaged by blowout", _vehicle];};
+    if (_x isKindOf "AllVehicles") then {
+      if ((damage _x) <= 0.99) then {
+        _x setHit ["motor", 1];
+        if (kiri_blowout_debug) then {diag_log format["[NAC BLOWOUT SERVER] :: [V] %1 has been damaged by blowout",_x];};
       };
     };
 

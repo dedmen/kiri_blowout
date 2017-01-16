@@ -105,8 +105,6 @@ playSound "bl_full";
 sleep 0.1;
 titleText["","BLACK OUT",1];
 disableUserInput true;
-player enableSimulation false;
-
 
 private _isInBuilding = [player] call kiri_blowout_fnc_isInsideBuilding;
 
@@ -119,7 +117,7 @@ if (!_hasAPSI) then {
 sleep 1;
 4 fadeSound 0;
 sleep 5;
-if (_hasAPSI) then {player enableSimulation true; disableUserInput false;};
+if (_hasAPSI) then {disableUserInput false;};
 sleep 6;
 6 fadeSound 1;
 
@@ -133,7 +131,7 @@ ppEffectDestroy _nonapsi_ef;
 
     if(GVAR(resetOvercast)) then { 120 setOverCast GVAR(originalOvercast); };
 
-    if (_hasAPSI) then {
+    if (_thisArgs) then {
         cutRsc ["RscAPSI_h6","PLAIN"];
         playSound "apsi_off";
         "filmGrain" ppEffectEnable false;
@@ -141,7 +139,6 @@ ppEffectDestroy _nonapsi_ef;
 
     [{//2 seconds unable to move
 
-        player enableSimulation true;
         disableUserInput false;
         diag_log format["[kfNAC BLOWOUT CLIENT] :: ns_blow_status = %1 Blowout end received."];
         [] call kiri_blowout_fnc_endAnimations;
@@ -150,9 +147,10 @@ ppEffectDestroy _nonapsi_ef;
 
 
 
-    ["kiri_blowout_endAction", _eventId] call CBA_fnc_removeEventHandler;
-}] call CBA_fnc_addEventHandler;
-
+    ["kiri_blowout_endAction", _thisId] call CBA_fnc_removeEventHandler;
+},_hasAPSI] call CBA_fnc_addEventHandlerArgs;
+sleep 1;
+player switchMove "UnconsciousOutProne";
 
 [{//If server fails in some way we end it ourselves
     ["kiri_blowout_endAction", []] call CBA_fnc_localEvent;

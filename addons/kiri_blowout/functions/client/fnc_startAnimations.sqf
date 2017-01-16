@@ -20,9 +20,8 @@
 */
 
 {
-    params ["_unit"];
-    if ((alive _unit) && {((vehicle _unit) == _unit)} && {!(APSI_CLASSNAME in (assignedItems _unit))}   ) then {
-         _unit switchMove "AcinPercMrunSnonWnonDf_agony";
+    if ((alive _x) && {((vehicle _x) == _x)} && {!(APSI_CLASSNAME in (assignedItems _x))}   ) then {
+         _x switchMove "AcinPercMrunSnonWnonDf_agony";
     };
     true
 } count allUnits;
