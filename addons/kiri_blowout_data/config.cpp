@@ -41,7 +41,7 @@ class CfgWeapons {
 };
 
 class CfgSounds {
-	
+
 	class bl_begin
 	{
 		name = "NS blowout_begin";
@@ -114,6 +114,20 @@ class CfgSounds {
 		sound[] = {"z\kiri_blowout\addons\kiri_blowout_data\sounds\apsi_off.ogg",1.778279,1.0};
 		titles[] = {};
 	};
+};
+
+
+class RscTextNS
+{
+	idc = -1;
+	type = 0;
+	style = 2;
+	LineSpacing = 1.0;
+	h = 0.04;
+	ColorBackground[] = {1,1,1,0.2};
+	ColorText[] = {0.1,0.1,0.1,1};
+	font = "BitStream";
+	SizeEx = 0.025;
 };
 
 class RscTitles
