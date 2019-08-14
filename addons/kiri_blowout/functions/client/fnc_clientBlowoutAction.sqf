@@ -154,7 +154,7 @@ ppEffectDestroy _nonapsi_ef;
         diag_log format["[kfNAC BLOWOUT CLIENT] :: ns_blow_status = %1 Blowout end received."];
         [] call kiri_blowout_fnc_endAnimations;
 
-    }, [], 5] call CBA_fnc_waitAndExecute;
+    }, [], 1] call CBA_fnc_waitAndExecute;
 
 
 
