@@ -99,6 +99,13 @@ playSound selectRandom ["bl_wave1","bl_wave2","bl_wave3"];
 _nonapsi_ef ppEffectAdjust [1.0, 1.0, -0.1, [0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 5.0],[0.4,0.0,0.0, 0.7]];
 _nonapsi_ef ppEffectCommit 1;
 
+
+//Umkipp
+
+player setVariable ["tf_voiceVolume", 0, true];
+player setVariable ["tf_globalVolume", 0.2];
+player setVariable ["tf_unable_to_use_radio", true];
+
 [] call kiri_blowout_fnc_startAnimations;
 sleep 0.1;
 playSound "bl_full";
@@ -138,6 +145,10 @@ ppEffectDestroy _nonapsi_ef;
     };
 
     [{//2 seconds unable to move
+
+        player setVariable ["tf_voiceVolume", 1, true];
+        player setVariable ["tf_globalVolume", 1];
+        player setVariable ["tf_unable_to_use_radio", true];
 
         disableUserInput false;
         diag_log format["[kfNAC BLOWOUT CLIENT] :: ns_blow_status = %1 Blowout end received."];
