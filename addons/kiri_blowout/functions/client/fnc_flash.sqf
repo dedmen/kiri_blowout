@@ -21,8 +21,8 @@
 */
 
 
-
+[] spawn kiri_blowout_fnc_NamalskFlashes;
 
 titleText["","WHITE OUT",1];
-titleText["","WHITE IN",1];
 sleep 0.25;
+titleText["","WHITE IN",1];

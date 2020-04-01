@@ -9,7 +9,16 @@ PREP_SUB(client,flash);
 PREP_SUB(client,startAnimations);
 
 
+PREP_SUB(client,initStatemachine);
+PREP_SUB(client,blowoutActionPrelude);
+PREP_SUB(client,blowoutActionHit);
+PREP_SUB(client,blowoutActionRecover);
+
+
+
+
+
 PREP_SUB(server,applyDamage);
 PREP_SUB(server,initBlowout);
 PREP_SUB(server,isInsideBuilding);
-PREP_SUB(server,NamalskFlashes);
+PREP_SUB(client,NamalskFlashes);

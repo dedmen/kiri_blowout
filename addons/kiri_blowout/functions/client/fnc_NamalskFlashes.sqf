@@ -23,7 +23,7 @@ if (worldName != "namalsk") exitWith {}; //Only on Namalsk
 
 private _lightnings = [];
 {
-    _lightning = "bl_bleez" createVehicle [0,0,0];
+    _lightning = "bl_bleez" createVehicleLocal [0,0,0];
     _lightning setPos [3962.11, 8453.32, _x];
     _lightning setVectorUp [0,0,1];
     _lightnings pushBack _lightning;

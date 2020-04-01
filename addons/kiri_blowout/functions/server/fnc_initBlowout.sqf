@@ -31,29 +31,30 @@ publicVariable QGVAR(blowoutInProgress);
 
 diag_log format["[kfNAC BLOWOUT SERVER] :: Initiating Blowout ItemDamage: %1 VehicleDamage: %2", _damageItems, _damageVehicles];
 
+["kiri_blowout_start", []] call CBA_fnc_remoteEvent; //tell clients to prep statemachine
+
 _this spawn {
     params ["_damageItems","_damageVehicles"];
 
+    //APSI beeping
     ["kiri_blowout_startDetection", []] call CBA_fnc_remoteEvent; //tell clients to start Detection
-
     sleep 30;  // needed time for APSI procedures OR nothing
 
-    ["kiri_blowout_startAction", []] call CBA_fnc_remoteEvent; //tell clients to start Action
+    //Thunder effects
+    ["kiri_blowout_startActionPrelude", []] call CBA_fnc_remoteEvent;
+    sleep 24.5;
 
-    diag_log format["[kfNAC BLOWOUT SERVER] :: Blowout actions in progress"];
-
-    {
-        [] call kiri_blowout_fnc_NamalskFlashes;
-        sleep _x;
-        true
-    } count [7.20, 1, 4.3, 3, 1, 4, 4];
-
-    [] call kiri_blowout_fnc_NamalskFlashes;
-
+    //Damage and fall over uncon
     [_damageItems,_damageVehicles] call kiri_blowout_fnc_applyDamage;
-    sleep (12.2-6);
+    ["kiri_blowout_startActionHit", []] call CBA_fnc_remoteEvent;
+    sleep 6.2;
 
-    ["kiri_blowout_endAction", []] call CBA_fnc_remoteEvent; //tell clients to end Action
+    //wake up, recover
+    ["kiri_blowout_startActionRecover", []] call CBA_fnc_remoteEvent;
+    sleep 10; //Doesn't matter, just for cleanup
+
+    //end and delete statemachine
+    ["kiri_blowout_endAction", []] call CBA_fnc_remoteEvent;
 
     GVAR(blowoutInProgress) = false;
     publicVariable QGVAR(blowoutInProgress);
