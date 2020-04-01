@@ -20,7 +20,7 @@
         call kiri_blowout_fnc_initStatemachine;
 */
 
-private _stateMachine = [{1}, true] call CBA_statemachine_fnc_create;
+private _stateMachine = [{[bis_functions_mainscope]}, false] call CBA_statemachine_fnc_create;
 GVAR(statemachine) = _stateMachine;
 
 //Detection phase

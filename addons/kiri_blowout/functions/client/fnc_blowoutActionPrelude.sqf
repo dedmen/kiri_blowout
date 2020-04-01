@@ -1,4 +1,4 @@
-
+#include "script_component.hpp"
 private _hasAPSI = APSI_CLASSNAME in (assignedItems player);
 
 playSound "bl_begin";

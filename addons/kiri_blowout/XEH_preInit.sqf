@@ -5,10 +5,6 @@ diag_log "kiri_PreInit";
 kiri_blowout_debug = false;
 
 
-#include "defineStatemachine.sqf"
-
-
-
 
 //Serveronly
 if (!isServer and !isDedicated) exitWith {};

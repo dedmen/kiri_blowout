@@ -22,7 +22,7 @@
 
 {
     if ((alive _x) && {((vehicle _x) == _x)} && {!(APSI_CLASSNAME in (assignedItems _x))}   ) then {
-         _x switchMove "";
+         _x switchMove "UnconsciousOutProne";
     };
     true
 } count allUnits;

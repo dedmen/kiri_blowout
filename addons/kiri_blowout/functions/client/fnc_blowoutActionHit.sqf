@@ -1,4 +1,4 @@
-
+#include "script_component.hpp"
 private _hasAPSI = APSI_CLASSNAME in (assignedItems player);
 
 //server does applyDamage here
@@ -11,7 +11,7 @@ player setVariable ["tf_unable_to_use_radio", true];
 
 if (!_hasAPSI && vehicle player != player) then {
     moveOut player;
-}
+};
 
 
 [] call kiri_blowout_fnc_startAnimations;
