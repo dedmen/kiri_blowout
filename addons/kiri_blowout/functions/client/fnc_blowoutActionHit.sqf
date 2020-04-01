@@ -8,6 +8,12 @@ player setVariable ["tf_voiceVolume", 0, true];
 player setVariable ["tf_globalVolume", 0.2];
 player setVariable ["tf_unable_to_use_radio", true];
 
+
+if (!_hasAPSI && vehicle player != player) then {
+    moveOut player;
+}
+
+
 [] call kiri_blowout_fnc_startAnimations;
 sleep 0.1;
 playSound "bl_full";
