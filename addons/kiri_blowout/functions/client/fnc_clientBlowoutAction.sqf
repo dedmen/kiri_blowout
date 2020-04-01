@@ -100,8 +100,9 @@ _nonapsi_ef ppEffectAdjust [1.0, 1.0, -0.1, [0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0
 _nonapsi_ef ppEffectCommit 1;
 
 
-//Umkipp
+//server does applyDamage here
 
+//Umkipp
 player setVariable ["tf_voiceVolume", 0, true];
 player setVariable ["tf_globalVolume", 0.2];
 player setVariable ["tf_unable_to_use_radio", true];
@@ -124,17 +125,31 @@ if (!_hasAPSI) then {
 sleep 1;
 4 fadeSound 0;
 sleep 5;
-if (_hasAPSI) then {disableUserInput false;};
-sleep 6;
-6 fadeSound 1;
 
-"dynamicBlur" ppEffectAdjust [0];
-"dynamicBlur" ppEffectCommit 12;
 
-titleText["","BLACK IN",10];
-ppEffectDestroy _nonapsi_ef;
 
 ["kiri_blowout_endAction", {
+    _thisArgs params ["_hasAPSI", "_nonapsi_ef"];
+
+    if (_hasAPSI) then {disableUserInput false;};
+    sleep 6;
+    6 fadeSound 1;
+
+    "dynamicBlur" ppEffectAdjust [0];
+    "dynamicBlur" ppEffectCommit 12;
+
+    titleText["","BLACK IN",10];
+    ppEffectDestroy _nonapsi_ef;
+
+
+
+    player switchMove "UnconsciousOutProne";
+
+    if (_hasAPSI) then { //TFAR jetzt schon aktivieren, weil wir nicht benommen sind
+        player setVariable ["tf_voiceVolume", 1, true];
+        player setVariable ["tf_globalVolume", 1];
+        player setVariable ["tf_unable_to_use_radio", true];
+    };
 
     if(GVAR(resetOvercast)) then { 120 setOverCast GVAR(originalOvercast); };
 
@@ -145,7 +160,6 @@ ppEffectDestroy _nonapsi_ef;
     };
 
     [{//2 seconds unable to move
-
         player setVariable ["tf_voiceVolume", 1, true];
         player setVariable ["tf_globalVolume", 1];
         player setVariable ["tf_unable_to_use_radio", true];
@@ -156,12 +170,9 @@ ppEffectDestroy _nonapsi_ef;
 
     }, [], 1] call CBA_fnc_waitAndExecute;
 
-
-
     ["kiri_blowout_endAction", _thisId] call CBA_fnc_removeEventHandler;
-},_hasAPSI] call CBA_fnc_addEventHandlerArgs;
-sleep 1;
-player switchMove "UnconsciousOutProne";
+},[_hasAPSI, _nonapsi_ef]] call CBA_fnc_addEventHandlerArgs;
+
 
 [{//If server fails in some way we end it ourselves
     ["kiri_blowout_endAction", []] call CBA_fnc_localEvent;

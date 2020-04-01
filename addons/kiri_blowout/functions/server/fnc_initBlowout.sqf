@@ -51,7 +51,7 @@ _this spawn {
     [] call kiri_blowout_fnc_NamalskFlashes;
 
     [_damageItems,_damageVehicles] call kiri_blowout_fnc_applyDamage;
-    sleep 12.2;
+    sleep (12.2-6);
 
     ["kiri_blowout_endAction", []] call CBA_fnc_remoteEvent; //tell clients to end Action
 
