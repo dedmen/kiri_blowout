@@ -16,7 +16,7 @@ sleep 2;
 if (_hasAPSI) then { //Reactivate TFAR now, APSI doesn't numb us for that long
     player setVariable ["tf_voiceVolume", 1, true];
     player setVariable ["tf_globalVolume", 1];
-    player setVariable ["tf_unable_to_use_radio", true];
+    player setVariable ["tf_unable_to_use_radio", false];
 };
 
 if (!_hasAPSI) then { //We are not on ground when we have APSI
@@ -34,7 +34,7 @@ if (_hasAPSI) then {
 [{//2 seconds unable to move
     player setVariable ["tf_voiceVolume", 1, true];
     player setVariable ["tf_globalVolume", 1];
-    player setVariable ["tf_unable_to_use_radio", true];
+    player setVariable ["tf_unable_to_use_radio", false];
 
     disableUserInput false;
     diag_log format["[kfNAC BLOWOUT CLIENT] :: ns_blow_status = %1 Blowout end received."];
